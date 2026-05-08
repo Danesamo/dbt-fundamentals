@@ -1,0 +1,7 @@
+sources:
+  - name: stripe
+    database: dbt_learn
+    schema: public
+    tables:
+      - name: stripe_payments
+     

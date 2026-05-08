@@ -4,4 +4,4 @@ select
     "ORDER_DATE" as order_date,
     "STATUS" as status
 
-from public.jaffle_shop_orders
+from {{ source('jaffle_shop', 'jaffle_shop_orders') }}

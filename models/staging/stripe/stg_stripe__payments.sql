@@ -1,10 +1,11 @@
 select
     "ID" as payment_id,
     "ORDERID" as order_id,
-    "AMOUNT" / 100 as amount,
-    "CREATED" as created_date,
     "PAYMENTMETHOD" as payment_method,
-    "STATUS" as status
+    "STATUS" as status,
 
-from public.stripe_payments
-where "STATUS" = 'success'
+    -- amount is stored in cents, convert it to dollars
+    "AMOUNT" / 100 as amount,
+    "CREATED" as created_at
+
+from {{ source('stripe', 'stripe_payments') }}

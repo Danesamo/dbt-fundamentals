@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "One record per customer with aggregated order metrics and lifetime value."
+    columns:
+      - name: customer_id
+        data_type: integer
+        description: "Primary key. Unique identifier for each customer."
+
+      - name: first_name
+        data_type: text
+        description: "Customer's first name."
+
+      - name: last_name
+        data_type: text
+        description: "Customer's last name."
+
+      - name: first_order_date
+        data_type: date
+        description: "Date of the customer's first order. Null if no orders placed."
+
+      - name: most_recent_order_date
+        data_type: date
+        description: "Date of the customer's most recent order. Null if no orders placed."
+
+      - name: number_of_orders
+        data_type: bigint
+        description: "Total number of orders placed by the customer. 0 if no orders."
+
+      - name: lifetime_value
+        data_type: numeric
+        description: "Total amount spent by the customer in dollars (successful payments only)."
