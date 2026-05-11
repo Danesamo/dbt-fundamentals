@@ -1,3 +1,10 @@
+# Note: Les tests generiques (unique, not_null) sur les colonnes sources ne sont pas
+# appliques ici car nos colonnes brutes PostgreSQL sont en MAJUSCULES ("ID", "USER_ID", etc.).
+# dbt ne supporte pas les identifiants entre guillemets dans les tests YAML generiques,
+# ce qui provoque une erreur "column does not exist".
+# Les tests equivalents sont appliques sur les modeles staging (customer_id, order_id)
+# apres renommage en minuscules dans stg_jaffle_shop__customers et stg_jaffle_shop__orders.
+
 sources:
   - name: jaffle_shop
     database: dbt_learn
