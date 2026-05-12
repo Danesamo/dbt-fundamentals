@@ -1,7 +1,10 @@
+version: 2
+
 sources:
   - name: stripe
+    description: Raw payment data from Stripe loaded into the data warehouse.
     database: dbt_learn
     schema: public
     tables:
       - name: stripe_payments
-     
+        description: Raw payments data. One row per payment transaction.
